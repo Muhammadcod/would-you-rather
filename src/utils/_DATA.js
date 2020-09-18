@@ -1,13 +1,8 @@
-// import CAA from "./images";
-// import CAB  from "./images";
-// import CAC from "./images";
-// import { CAA, CAB, CAC } from "./images";
-
 let users = {
 	sarahedo: {
 		id: "sarahedo",
 		name: "Sarah Edo",
-		avatarURL: "/images/safiyyah.png",
+		avatarURL: "/safiyyah.png",
 		answers: {
 			"8xf0y6ziyjabvozdd253nd": "optionOne",
 			"6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -19,7 +14,7 @@ let users = {
 	tylermcginnis: {
 		id: "tylermcginnis",
 		name: "Tyler McGinnis",
-		avatarURL: "/images/abdullah.png",
+		avatarURL: "/abdullah.png",
 		answers: {
 			vthrdm985a262al8qx3do: "optionOne",
 			xj352vofupe1dqz9emx13r: "optionTwo",
@@ -29,7 +24,7 @@ let users = {
 	johndoe: {
 		id: "johndoe",
 		name: "John Doe",
-		avatarURL: "/images/muhammad.png",
+		avatarURL: "/muhammad.png",
 		answers: {
 			xj352vofupe1dqz9emx13r: "optionOne",
 			vthrdm985a262al8qx3do: "optionTwo",
