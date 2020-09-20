@@ -1,37 +1,50 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import UnAnswered from "./UnAnswered";
-import Answered from "./Answered";
-import Nav from "./Nav";
+import { connect } from "react-redux";
+import Tabs from "./Tabs";
+import Question from "./Question";
 
 class Dashboard extends Component {
 	render() {
+		console.log(this.props);
+		const { unanswered, answered } = this.props;
 		return (
-			<Router>
-				<>
-					<div className="container">
-						<div className="polls">
-							<Nav />
-							{this.props.loading === true ? null : (
-								<div>
-									<Route
-										path="/"
-										exact
-										component={UnAnswered}
-									/>
-
-									<Route
-										path="/answered"
-										component={Answered}
-									/>
-								</div>
-							)}
-						</div>
+			<>
+				<Tabs>
+					<div label="Unanswered">
+						<ul className="dashboard-list">
+							{unanswered.map((question) => (
+								<li key={question.id}>
+									<Question id={question.id} />
+								</li>
+							))}
+						</ul>
 					</div>
-				</>
-			</Router>
+					<div label="answered">
+						{answered.map((question) => (
+							<li key={question.id}>
+								<Question id={question.id} />
+							</li>
+						))}
+					</div>
+				</Tabs>
+			</>
 		);
 	}
 }
 
-export default Dashboard;
+function mapStateToProps({ authedUser, users, questions }) {
+	console.log("this ...", users[authedUser]);
+	const answeredIds = Object.keys(users[authedUser].answers);
+	const answered = Object.values(questions)
+		.filter((question) => answeredIds.includes(question.id))
+		.sort((a, b) => b.timestamp - a.timestamp);
+	const unanswered = Object.values(questions)
+		.filter((question) => !answeredIds.includes(question.id))
+		.sort((a, b) => b.timestamp - a.timestamp);
+
+	return {
+		answered,
+		unanswered,
+	};
+}
+export default connect(mapStateToProps)(Dashboard);

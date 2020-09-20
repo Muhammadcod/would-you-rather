@@ -20,7 +20,7 @@ a {
 .btn {
 	text-transform: uppercase;
 	margin: 35px auto;
-	padding: 10px;
+	padding: 5px;
 	border: 1px solid rgba(0, 0, 0, 0.29);
 	cursor: pointer;
 	background: #fff;
@@ -47,30 +47,45 @@ a {
 .active {
 	font-weight: bold;
 }
+nav {
+	padding: 0px;
+	display: flex;
+	border: 1px solid blue;
+	width: 100%;
+	align-content: stretch;
+	justify-content: space-around;
+}
+
+nav .nav-wrapper {
+	/* text-align: center; */
+}
 
 .nav ul {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-    text-decoration: none;
-    border: 1px solid black;
+	text-decoration: none;
+	margin: 0 0 0 0;
+}
+.nav ul:first-child {
+	width: 450px;
+}
+.nav ul:last-child {
+	width: 250px;
 }
 
 .nav li:first-child {
-    padding-left: 0;
-    border: 1px solid red;
-    /* width: 100%; */
+	padding-left: 0;
 }
 .nav li {
-    padding-left: 0;
-    border: 1px solid red;
-    width: 50%;
-    
+	padding-left: 0;
+	width: 50%;
 }
 .nav li a {
-    border:1px solid red;
-    display: block;
-    text-align: center;
+	display: block;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
 }
 
 ul {
@@ -79,33 +94,110 @@ ul {
 
 li {
 	list-style-type: none;
-    /* padding: 10px; */
-    
 	text-decoration: none;
 }
-
 .avatar {
-	height: 50px;
+	height: 70px;
 	border-radius: 25px;
-	margin: 10px;
+	margin: 10px 20px;
+}
+
+.tabs {
+	border: 1px solid #dad7d7;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.tab-list {
+	border-bottom: 1px solid black;
+	padding-left: 0;
+	text-align: center;
+}
+.tab-list-item {
+	border-bottom: 1px solid #ccc;
+	display: inline-block;
+	list-style: none;
+	margin-bottom: 1px;
+	padding: 0.5rem 0.75rem;
+}
+.tab-list-active {
+	border-bottom: solid #ccc;
+	background-color: white;
+	border-width: 1px 1px 0 1px;
 }
 
 .polls {
 	width: 100%;
-	max-width: 590px;
-	/* padding: 10px; */
-	/* display: flex; */
-	margin: 0 auto;
+	max-width: 450px;
+	margin: 15px auto;
 	border: 1px solid #dad7d7;
 	border-radius: 3px;
-	/* cursor: pointer; */
 }
-/* .border {
-    border:1px solid red;
-    
-    text-align: center;
-} */
+
+.questioner {
+	padding: 15px;
+	margin: 0 0;
+	border: 1px solid #969696;
+}
+
 .poll {
-    width: 100%;
-	max-width: 530px;
+	display: flex;
+	/* border: 1px solid #dad7d7; */
 }
+
+/* 
+.poll {
+	width: 100%;
+    max-width: 530px;
+    border: 1px solid black;
+} */
+/* .poll {
+	padding: 10px;
+	display: flex;
+	border: 1px solid #dad7d7;
+	cursor: pointer;
+}
+.poll-info {
+	margin: 0 auto;
+	display: flex;
+    width: 100%;
+
+	flex-direction: column;
+} */
+
+/* Hacky but less typing in the video */
+/* .poll-info > div > span:first-child {
+	font-weight: bold;
+	margin-right: 5px;
+}
+.poll-info > div > span:nth-child(2) {
+	color: #969696;
+	font-size: 16px;
+}
+.poll-info > div > div {
+	color: #969696;
+	font-size: 15px;
+	margin-left: 40px;
+	text-align: center;
+}
+.poll-info > div > div:nth-of-type(1) {
+	color: #969696;
+	font-size: 15px;
+	margin-top: 10px;
+	text-align: center;
+}
+.poll-info > div > p {
+	font-size: 18px;
+	margin: 10px 0;
+}
+.bod {
+    border-left: 1px solid #969696;
+
+}
+.questioner {
+    padding: 10px;
+    margin:0 0;
+    background-color:  #a3a3a3;
+    border: 1px solid #969696;
+
+} */
