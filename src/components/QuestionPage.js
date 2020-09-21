@@ -1,10 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
+import { handleAddAnswerToQuestion } from "../actions/questions";
 
 class QuestionPage extends Component {
+	// const { optionOne } = this.props;
+	state = {
+		selectedOption: this.props.question.optionOne.text,
+	};
+
+	handleOptionChange = (e) => {
+		const selectedOption = e.target.value;
+
+		this.setState(() => ({
+			selectedOption,
+		}));
+	};
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		console.log("You have submitted:", this.state.selectedOption);
+		const { selectedOption } = this.state;
+		const { dispatch, id } = this.props;
+
+		dispatch(handleAddAnswerToQuestion(id, selectedOption));
+		// dispatch(handleAddAnswerToUser(id, selectedOption));
+
+		this.setState(() => ({
+			selectedOption: this.props.question.optionOne.text,
+		}));
+	};
+
 	render() {
 		// const { id } = this.props;
+		console.log("selected", this.state.selectedOption);
 		const { question } = this.props;
 		const { name, avatar, optionOne, optionTwo } = question;
 		return (
@@ -20,13 +49,60 @@ class QuestionPage extends Component {
 						<div className="poll-info">
 							<div className="bod">
 								<span>Would you rather</span>
-								<div>{optionOne.text} </div>
-								<div>or</div>
-								<div>{optionTwo.text} </div>
+								<form onSubmit={this.handleSubmit}>
+									<div className="form-check">
+										<label>
+											<input
+												type="radio"
+												name="option1"
+												value={optionOne.text}
+												onChange={
+													this.handleOptionChange
+												}
+												checked={
+													this.state
+														.selectedOption ===
+													optionOne.text
+												}
+												className="form-check-input"
+											/>
+											{optionOne.text}
+										</label>
+									</div>
+									<p>or</p>
+									<div className="form-check">
+										<label>
+											<input
+												type="radio"
+												name="option2"
+												value={optionTwo.text}
+												onChange={
+													this.handleOptionChange
+												}
+												checked={
+													this.state
+														.selectedOption ===
+													optionTwo.text
+												}
+												className="form-check-input"
+											/>
+											{optionTwo.text}
+										</label>
+									</div>
 
-								<button type="submit" className="btn bod">
-									View Poll
-								</button>
+									<div className="form-group">
+										<button
+											className="btn btn-primary mt-2"
+											type="submit"
+										>
+											Submit
+										</button>
+									</div>
+								</form>
+
+								{/* <button type="submit" className="btn bod">
+									submit
+								</button> */}
 							</div>
 						</div>
 					</div>

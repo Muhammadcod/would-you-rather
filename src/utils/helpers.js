@@ -15,10 +15,11 @@ export function formatQuestion(question, author, authedUser, parentQuestion) {
 		avatar: avatarURL,
 		optionOne,
 		optionTwo,
+		// hasVoted: votes.includes(authedUser),
 		parent: !parentQuestion
 			? null
 			: {
-					author: parentQuestion.author,
+					author: parentQuestion.question,
 					id: parentQuestion.id,
 			  },
 	};
