@@ -37,7 +37,12 @@ function addAnswerToQuestion(authedUser, qid, answer) {
 export function handleAddAnswerToQuestion(authedUser, qid, answer) {
 	return (dispatch) => {
 		// const { authedUser } = getState();
+		// console.log("question", qid);
+		console.log("type of", typeof answer, typeof qid, typeof authedUser);
+		// const qid = question.id;
+		console.log("did", authedUser, qid);
 
+		// console.warn("this is the user", authedUser);
 		return saveQuestionAnswer({
 			authedUser,
 			qid,

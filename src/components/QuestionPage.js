@@ -4,9 +4,10 @@ import { formatQuestion } from "../utils/helpers";
 import { handleAddAnswerToQuestion } from "../actions/questions";
 
 class QuestionPage extends Component {
-	// const { optionOne } = this.props;
+	//Radio Buttons in React.js
+	//http://react.tips/radio-buttons-in-reactjs/
 	state = {
-		selectedOption: this.props.question.optionOne.text,
+		selectedOption: "",
 	};
 
 	handleOptionChange = (e) => {
@@ -19,15 +20,16 @@ class QuestionPage extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log("You have submitted:", this.state.selectedOption);
-		const { selectedOption } = this.state;
-		const { dispatch, id } = this.props;
+		console.log("You have submitted:", this.state.selectedOption.text);
 
-		dispatch(handleAddAnswerToQuestion(id, selectedOption));
-		// dispatch(handleAddAnswerToUser(id, selectedOption));
+		const { selectedOption } = this.state;
+		const { dispatch, id, authedUser } = this.props;
+		if (selectedOption !== "") {
+			dispatch(handleAddAnswerToQuestion(authedUser, id, selectedOption));
+		}
 
 		this.setState(() => ({
-			selectedOption: this.props.question.optionOne.text,
+			selectedOption: "",
 		}));
 	};
 
@@ -54,15 +56,15 @@ class QuestionPage extends Component {
 										<label>
 											<input
 												type="radio"
-												name="option1"
-												value={optionOne.text}
+												// name="radioGroup"
+												value="optionOne"
 												onChange={
 													this.handleOptionChange
 												}
 												checked={
 													this.state
 														.selectedOption ===
-													optionOne.text
+													"optionOne"
 												}
 												className="form-check-input"
 											/>
@@ -74,15 +76,15 @@ class QuestionPage extends Component {
 										<label>
 											<input
 												type="radio"
-												name="option2"
-												value={optionTwo.text}
+												// name="radioGroup"
+												value="optionTwo"
 												onChange={
 													this.handleOptionChange
 												}
 												checked={
 													this.state
 														.selectedOption ===
-													optionTwo.text
+													"optionTwo"
 												}
 												className="form-check-input"
 											/>
@@ -99,10 +101,6 @@ class QuestionPage extends Component {
 										</button>
 									</div>
 								</form>
-
-								{/* <button type="submit" className="btn bod">
-									submit
-								</button> */}
 							</div>
 						</div>
 					</div>
@@ -122,11 +120,6 @@ function mapStateToProps({ authedUser, questions, users }, props) {
 		question: question
 			? formatQuestion(question, users[question.author], authedUser)
 			: null,
-		// replies: !questions[id]
-		// 	? []
-		// 	: questions[id].replies.sort(
-		// 			(a, b) => questions[b].timestamp - questions[a].timestamp
-		// 	  ),
 	};
 }
 
