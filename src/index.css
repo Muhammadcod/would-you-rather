@@ -56,10 +56,6 @@ nav {
 	justify-content: space-around;
 }
 
-nav .nav-wrapper {
-	/* text-align: center; */
-}
-
 .nav ul {
 	display: flex;
 	flex-direction: row;
@@ -67,9 +63,11 @@ nav .nav-wrapper {
 	text-decoration: none;
 	margin: 0 0 0 0;
 }
+
 .nav ul:first-child {
 	width: 450px;
 }
+
 .nav ul:last-child {
 	width: 250px;
 }
@@ -77,6 +75,7 @@ nav .nav-wrapper {
 .nav li:first-child {
 	padding-left: 0;
 }
+
 .nav li {
 	padding-left: 0;
 	width: 50%;
@@ -96,6 +95,7 @@ li {
 	list-style-type: none;
 	text-decoration: none;
 }
+
 .avatar {
 	height: 70px;
 	border-radius: 25px;
@@ -113,6 +113,7 @@ li {
 	padding-left: 0;
 	text-align: center;
 }
+
 .tab-list-item {
 	border-bottom: 1px solid #ccc;
 	display: inline-block;
