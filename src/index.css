@@ -143,62 +143,61 @@ li {
 
 .poll {
 	display: flex;
-	/* border: 1px solid #dad7d7; */
 }
 
-/* 
-.poll {
-	width: 100%;
-    max-width: 530px;
-    border: 1px solid black;
-} */
-/* .poll {
-	padding: 10px;
-	display: flex;
-	border: 1px solid #dad7d7;
-	cursor: pointer;
-}
 .poll-info {
+	width: 100%;
+}
+
+.poll-info .bod form {
+	text-align: center;
+}
+
+.poll-info .bod form p {
+	text-align: center;
+	margin: 0 0;
+}
+
+.poll-info .bod form .form-check {
+	text-align: center;
+	letter-spacing: 0.8px;
+}
+
+.poll-info .bod form .form-check:first-child {
+	margin-top: 15px;
+}
+
+.poll-info .bod .options {
+	text-align: center;
+	margin-top: 15px;
+	letter-spacing: 0.8px;
+}
+
+.poll-info .bod .or {
+	text-align: center;
+}
+
+.poll-info .bod button {
+	margin-left: 45px;
+}
+
+.new-tweet {
+	width: 100%;
+	max-width: 590px;
 	margin: 0 auto;
 	display: flex;
-    width: 100%;
-
 	flex-direction: column;
-} */
+}
 
-/* Hacky but less typing in the video */
-/* .poll-info > div > span:first-child {
-	font-weight: bold;
-	margin-right: 5px;
+.newTweet ul {
+	width: 100%;
 }
-.poll-info > div > span:nth-child(2) {
-	color: #969696;
-	font-size: 16px;
-}
-.poll-info > div > div {
-	color: #969696;
-	font-size: 15px;
-	margin-left: 40px;
-	text-align: center;
-}
-.poll-info > div > div:nth-of-type(1) {
-	color: #969696;
-	font-size: 15px;
-	margin-top: 10px;
-	text-align: center;
-}
-.poll-info > div > p {
-	font-size: 18px;
-	margin: 10px 0;
-}
-.bod {
-    border-left: 1px solid #969696;
 
+.newTweet ul li {
+	width: 49%;
+	display: inline-block;
 }
-.questioner {
-    padding: 10px;
-    margin:0 0;
-    background-color:  #a3a3a3;
-    border: 1px solid #969696;
 
-} */
+.newTweet ul li > * {
+	width: 100%;
+}

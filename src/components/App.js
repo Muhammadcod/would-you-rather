@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import QuestionPage from "./QuestionPage";
 import Dashboard from "./Dashboard";
+import PollResult from "./PollResult";
 import NewQuestion from "./NewQuestion";
 // // import LeaderBoard from "./LeaderBoard";
 // import LoadingBar from "react-redux-loading";
@@ -32,6 +33,10 @@ class App extends Component {
 									<Route
 										path="/question/:id"
 										component={QuestionPage}
+									/>
+									<Route
+										path="/:id/result"
+										component={PollResult}
 									/>
 									<Route
 										path="/new"

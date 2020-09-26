@@ -15,7 +15,15 @@ export function formatQuestion(question, author, authedUser, parentQuestion) {
 		avatar: avatarURL,
 		optionOne,
 		optionTwo,
-		// hasVoted: votes.includes(authedUser),
+		hasAnswered:
+			optionOne.votes.includes(authedUser) ||
+			optionTwo.votes.includes(authedUser),
+		//             function percentage(num, per)
+		// {
+		//   return (num)*per;
+		// }
+
+		// console.log(percentage((2/3), 100));
 		parent: !parentQuestion
 			? null
 			: {

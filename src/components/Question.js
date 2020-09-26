@@ -6,7 +6,13 @@ import { Link, withRouter } from "react-router-dom";
 class Question extends Component {
 	render() {
 		const { question } = this.props;
-		const { name, avatar, optionOne, id } = question;
+		// console.log("....", question);
+
+		// console.log("....", id, authedUser, question);
+
+		const { name, avatar, optionOne, id, hasAnswered } = question;
+		console.log("====", hasAnswered);
+
 		return (
 			<div className="polls">
 				<h5 className="questioner">{name} asks:</h5>
@@ -19,14 +25,26 @@ class Question extends Component {
 					<div className="poll-info">
 						<div className="bod">
 							<span>Would you rather</span>
-							<div>{optionOne.text} </div>
-							<div>or</div>
+							<div className="options">{optionOne.text} </div>
+							<div className="or">or</div>
 
-							<Link to={`/question/${id}`}>
-								<button type="submit" className="btn bod">
-									View Poll
-								</button>
-							</Link>
+							{hasAnswered === true ? (
+								<Link to={`${id}/result`}>
+									<button
+										type="submit"
+										className="btn bod"
+										style={{ color: `red` }}
+									>
+										View Poll
+									</button>
+								</Link>
+							) : (
+								<Link to={`/question/${id}`}>
+									<button type="submit" className="btn">
+										View Poll
+									</button>
+								</Link>
+							)}
 						</div>
 					</div>
 				</div>

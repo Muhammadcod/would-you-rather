@@ -33,11 +33,14 @@ class QuestionPage extends Component {
 		}));
 	};
 
+	i;
 	render() {
 		// const { id } = this.props;
 		console.log("selected", this.state.selectedOption);
 		const { question } = this.props;
+
 		const { name, avatar, optionOne, optionTwo } = question;
+
 		return (
 			<>
 				<div className="polls">
@@ -52,8 +55,8 @@ class QuestionPage extends Component {
 							<div className="bod">
 								<span>Would you rather</span>
 								<form onSubmit={this.handleSubmit}>
-									<div className="form-check">
-										<label>
+									<div className="form-check border">
+										<label className="border">
 											<input
 												type="radio"
 												// name="radioGroup"
