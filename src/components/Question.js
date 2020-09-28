@@ -32,7 +32,7 @@ class Question extends Component {
 								<Link to={`${id}/result`}>
 									<button
 										type="submit"
-										className="btn bod"
+										className="custom-btn bod"
 										style={{ color: `red` }}
 									>
 										View Poll
@@ -40,7 +40,10 @@ class Question extends Component {
 								</Link>
 							) : (
 								<Link to={`/question/${id}`}>
-									<button type="submit" className="btn">
+									<button
+										type="submit"
+										className="custom-btn"
+									>
 										View Poll
 									</button>
 								</Link>

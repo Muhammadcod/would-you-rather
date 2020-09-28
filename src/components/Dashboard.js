@@ -10,7 +10,7 @@ class Dashboard extends Component {
 		return (
 			<>
 				<Tabs>
-					<div label="Unanswered">
+					<div label="Unanswered Questions">
 						<ul className="dashboard-list">
 							{unanswered.map((question) => (
 								<li key={question.id}>
@@ -19,12 +19,14 @@ class Dashboard extends Component {
 							))}
 						</ul>
 					</div>
-					<div label="answered">
-						{answered.map((question) => (
-							<li key={question.id}>
-								<Question id={question.id} />
-							</li>
-						))}
+					<div label="Answered Questions">
+						<ul className="dashboard-list">
+							{answered.map((question) => (
+								<li key={question.id}>
+									<Question id={question.id} />
+								</li>
+							))}
+						</ul>
 					</div>
 				</Tabs>
 			</>

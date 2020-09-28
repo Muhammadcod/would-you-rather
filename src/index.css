@@ -17,7 +17,7 @@ a {
 	border: 1px solid blue;
 }
 
-.btn {
+.custom-btn {
 	text-transform: uppercase;
 	margin: 35px auto;
 	padding: 5px;
@@ -29,12 +29,12 @@ a {
 	position: relative;
 }
 
-.btn:hover {
+.custom-btn:hover {
 	border-color: rgba(0, 0, 0, 0.5);
 	text-decoration: none;
 }
 
-.btn:focus {
+.custom-btn:focus {
 	outline: 0;
 	font-weight: 700;
 	border-width: 2px;
@@ -47,7 +47,7 @@ a {
 .active {
 	font-weight: bold;
 }
-nav {
+/* nav {
 	padding: 0px;
 	display: flex;
 	border: 1px solid blue;
@@ -85,10 +85,10 @@ nav {
 	text-align: center;
 	height: 40px;
 	line-height: 40px;
-}
+} */
 
 ul {
-	padding-left: 0;
+	padding-left: 0 !important;
 }
 
 li {
@@ -109,21 +109,21 @@ li {
 }
 
 .tab-list {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #ccc;
 	padding-left: 0;
 	text-align: center;
 }
 
 .tab-list-item {
-	border-bottom: 1px solid #ccc;
 	display: inline-block;
 	list-style: none;
 	margin-bottom: 1px;
 	padding: 0.5rem 0.75rem;
+	width: 50%;
+	cursor: pointer;
 }
 .tab-list-active {
-	border-bottom: solid #ccc;
-	background-color: white;
+	background-color: #ccc;
 	border-width: 1px 1px 0 1px;
 }
 
