@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.css";
 import App from "./components/App";
 import reducer from "./reducers";
 import middleware from "./middleware";
@@ -17,3 +18,4 @@ ReactDOM.render(
 	</React.StrictMode>,
 	document.getElementById("root")
 );
+//  https://software.intel.com/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows

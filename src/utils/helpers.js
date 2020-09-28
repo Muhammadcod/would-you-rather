@@ -4,6 +4,12 @@ export function formatDate(timestamp) {
 	return time.substr(0, 5) + time.slice(-2) + " | " + d.toLocaleDateString();
 }
 
+export function percentage(num, total, per) {
+	return (num / total) * per;
+}
+
+// console.log(percentage(2 / 3, 100));
+
 export function formatQuestion(question, author, authedUser, parentQuestion) {
 	const { id, timestamp, optionOne, optionTwo } = question;
 	const { name, avatarURL } = author;
@@ -18,12 +24,12 @@ export function formatQuestion(question, author, authedUser, parentQuestion) {
 		hasAnswered:
 			optionOne.votes.includes(authedUser) ||
 			optionTwo.votes.includes(authedUser),
-		//             function percentage(num, per)
-		// {
-		//   return (num)*per;
-		// }
-
-		// console.log(percentage((2/3), 100));
+		totalVotes: optionOne.votes.length + optionTwo.votes.length,
+		mutualVote: optionOne.votes.includes(authedUser)
+			? optionOne.votes.length
+			: optionTwo.votes.length,
+		// percentage: ,
+		per: 100,
 		parent: !parentQuestion
 			? null
 			: {

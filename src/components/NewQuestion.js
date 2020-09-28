@@ -44,7 +44,7 @@ class NewQuestion extends Component {
 							{/* <label>Label 1</label> */}
 							<input
 								type="text"
-								name="firstName"
+								name="optionOne"
 								value={optionOne}
 								onChange={this.handleChange}
 							/>
