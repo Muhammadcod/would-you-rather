@@ -1,7 +1,7 @@
 import {
 	RECEIVE_QUESTIONS,
 	ADD_ANSWER_TO_QUESTION,
-	// ADD_QUESTION,
+	ADD_QUESTION,
 } from "../actions/questions";
 
 export default function questions(state = {}, action) {
@@ -24,26 +24,15 @@ export default function questions(state = {}, action) {
 					},
 				},
 			};
-		// case ADD_QUESTION:
-		// 	const { question } = action;
+		case ADD_QUESTION:
+			const { question } = action;
 
-		// 	let answer = {};
-		// 	if (question.answer !== null) {
-		// 		answer = {
-		// 			[question.answer]: {
-		// 				...state[question.answer],
-		// 				replies: state[question.answer].replies.concat([
-		// 					question.id,
-		// 				]),
-		// 			},
-		// 		};
-		// 	}
-
-		// 	return {
-		// 		...state,
-		// 		[action.tweet.id]: action.tweet,
-		// 		...answer,
-		// 	};
+			return {
+				...state,
+				[question.id]: {
+					...question,
+				},
+			};
 		default:
 			return state;
 	}

@@ -6,7 +6,7 @@ import Dashboard from "./Dashboard";
 import PollResult from "./PollResult";
 import NewQuestion from "./NewQuestion";
 // // import LeaderBoard from "./LeaderBoard";
-// import LoadingBar from "react-redux-loading";
+import LoadingBar from "react-redux-loading";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Nav from "./Nav";
@@ -20,8 +20,8 @@ class App extends Component {
 			<div>
 				<Router>
 					<>
-						{/* <LoadingBar /> */}
-						<div className="container">
+						<LoadingBar />
+						<div className="container-fluid border">
 							<Nav />
 							{this.props.loading === true ? null : (
 								<div>

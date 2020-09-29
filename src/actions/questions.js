@@ -15,10 +15,11 @@ export function handleAddQuestion(optionOne, optionTwo) {
 	return (dispatch, getState) => {
 		const { authedUser } = getState();
 		// dispatch(showLoading());
+		console.log("--", optionOne, optionTwo, authedUser);
 
 		return saveQuestion({
-			optionOne,
-			optionTwo,
+			optionOneText: optionOne,
+			optionTwoText: optionTwo,
 			author: authedUser,
 		}).then((question) => dispatch(addQuestion(question)));
 		// .then(() => dispatch(hideLoading()));
@@ -36,13 +37,9 @@ function addAnswerToQuestion(authedUser, qid, answer) {
 
 export function handleAddAnswerToQuestion(authedUser, qid, answer) {
 	return (dispatch) => {
-		// const { authedUser } = getState();
-		// console.log("question", qid);
 		console.log("type of", typeof answer, typeof qid, typeof authedUser);
-		// const qid = question.id;
-		console.log("did", authedUser, qid);
 
-		// console.warn("this is the user", authedUser);
+		console.log("did", authedUser, qid);
 		return saveQuestionAnswer({
 			authedUser,
 			qid,

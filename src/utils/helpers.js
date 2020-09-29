@@ -28,7 +28,6 @@ export function formatQuestion(question, author, authedUser, parentQuestion) {
 		mutualVote: optionOne.votes.includes(authedUser)
 			? optionOne.votes.length
 			: optionTwo.votes.length,
-		// percentage: ,
 		per: 100,
 		parent: !parentQuestion
 			? null

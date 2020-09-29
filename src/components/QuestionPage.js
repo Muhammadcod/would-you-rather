@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import { handleAddAnswerToQuestion } from "../actions/questions";
-
+import { withRouter } from "react-router-dom";
 class QuestionPage extends Component {
 	//Radio Buttons in React.js
 	//http://react.tips/radio-buttons-in-reactjs/
@@ -31,6 +31,8 @@ class QuestionPage extends Component {
 		this.setState(() => ({
 			selectedOption: "",
 		}));
+
+		this.props.history.push(`/${id}/result`);
 	};
 
 	i;
@@ -55,11 +57,10 @@ class QuestionPage extends Component {
 							<div className="bod">
 								<span>Would you rather</span>
 								<form onSubmit={this.handleSubmit}>
-									<div className="form-check border">
-										<label className="border">
+									<div className="form-check">
+										<label className="">
 											<input
 												type="radio"
-												// name="radioGroup"
 												value="optionOne"
 												onChange={
 													this.handleOptionChange
@@ -79,7 +80,6 @@ class QuestionPage extends Component {
 										<label>
 											<input
 												type="radio"
-												// name="radioGroup"
 												value="optionTwo"
 												onChange={
 													this.handleOptionChange
@@ -126,4 +126,4 @@ function mapStateToProps({ authedUser, questions, users }, props) {
 	};
 }
 
-export default connect(mapStateToProps)(QuestionPage);
+export default withRouter(connect(mapStateToProps)(QuestionPage));

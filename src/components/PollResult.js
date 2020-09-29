@@ -15,6 +15,8 @@ class PollResult extends Component {
 			mutualVote,
 		} = question;
 		const unmutualVote = totalVotes - mutualVote;
+		const mutualPerc = percentage(mutualVote, totalVotes, per);
+		const unmutualPerc = percentage(unmutualVote, totalVotes, per);
 
 		console.log("total", typeof totalVotes, typeof mutualVote, typeof per);
 		return (
@@ -22,23 +24,42 @@ class PollResult extends Component {
 				<h5 className="questioner"> Asked by {name}</h5>
 				<div className="poll">
 					<img src={avatar} alt="" className="avatar" />
-					<div className="poll-info">
+					<div className="poll-info border">
+						<div className="mb-2 result">Results:</div>
 						<div className="option-one border">
 							<p>Would you rather {optionOne.text}</p>
-							<span>
-								{percentage(mutualVote, totalVotes, per)}%
-							</span>
-							<p>
+							<div className="progress">
+								<div
+									className="progress-bar"
+									role="progressbar"
+									style={{ width: `${mutualPerc}%` }}
+									aria-valuenow={mutualPerc}
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									{mutualPerc}%
+								</div>
+							</div>
+
+							<p className="text-center">
 								{mutualVote} of {totalVotes}
 							</p>
 						</div>
 						<div className="option-two border">
 							<p>Would you rather {optionTwo.text}</p>
-							<span>
-								{" "}
-								{percentage(unmutualVote, totalVotes, per)}%
-							</span>
-							<p>
+							<div className="progress">
+								<div
+									className="progress-bar"
+									role="progressbar"
+									style={{ width: `${unmutualPerc}%` }}
+									aria-valuenow={unmutualPerc}
+									aria-valuemin="0"
+									aria-valuemax="100"
+								>
+									{unmutualPerc}%
+								</div>
+							</div>
+							<p className="text-center">
 								{unmutualVote} of {totalVotes}
 							</p>
 						</div>

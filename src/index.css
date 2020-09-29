@@ -147,6 +147,20 @@ li {
 
 .poll-info {
 	width: 100%;
+	padding: 10px;
+}
+.poll-info .questioner {
+	background-color: #ccc !important;
+}
+.poll-info .result {
+	font-size: 24px;
+}
+.poll-info .option-one {
+	margin-bottom: 10px;
+}
+.poll-info .option-one,
+.poll-info .option-two {
+	padding: 15px 25px 15px 15px;
 }
 
 .poll-info .bod form {

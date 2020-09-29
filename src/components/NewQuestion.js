@@ -1,71 +1,83 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { handleAddTweet } from "../actions/tweets";
+import { Redirect } from "react-router-dom";
+import { handleAddQuestion } from "../actions/questions";
 class NewQuestion extends Component {
+	// const optionOneText = {}
 	state = {
 		optionOne: "",
 		optionTwo: "",
 	};
 	handleChange = (e) => {
-		const text = e.target.value;
+		let nam = e.target.name;
+		let val = e.target.value;
 
-		this.setState(() => ({
-			text,
-		}));
+		this.setState({
+			[nam]: val,
+		});
 	};
 	handleSubmit = (e) => {
 		e.preventDefault();
 
-		const { text } = this.state;
+		const { optionOne, optionTwo } = this.state;
 		const { dispatch, id } = this.props;
 
-		// todo: Add Tweet to Store
-
-		// console.log("New Tweet: ", text);
-		// dispatch(handleAddTweet(text, id));
+		console.log("New question: ", typeof optionOne, typeof optionTwo);
+		dispatch(handleAddQuestion(optionOne, optionTwo));
 
 		this.setState(() => ({
-			text: "",
+			optionOne: "",
+			optionTwo: "",
+			toHome: id ? false : true,
 		}));
 	};
 	render() {
-		const { optionOne, optionTwo } = this.state;
+		const { toHome } = this.state;
 
-		{
-			/* todo: Redirect to / if submitted */
+		if (toHome === true) {
+			return <Redirect to="/" />;
 		}
+		console.log("+++", this.state);
 
 		return (
-			<div>
+			<div className="polls">
 				<h3 className="center">Compose new Tweet</h3>
-				<form className="new-tweet" onSubmit={this.handleSubmit}>
-					<ul>
-						<li>
-							{/* <label>Label 1</label> */}
-							<input
-								type="text"
-								name="optionOne"
-								value={optionOne}
-								onChange={this.handleChange}
-							/>
-						</li>
-						<span>OR</span>
-						<li>
-							{/* <label>Label 2</label> */}
-							<input
-								type="text"
-								name="firstName"
-								value={optionTwo}
-								onChange={this.handleChange}
-							/>
-						</li>
-					</ul>
-
-					<button
-						className="btn"
-						type="submit"
-						disabled={optionOne || optionTwo === ""}
-					>
+				<form onSubmit={this.handleSubmit}>
+					<div className="mb-3">
+						<label
+							htmlFor="formGroupExampleInput"
+							className="form-label"
+						>
+							Example label
+						</label>
+						<input
+							type="text"
+							className="form-control w-50"
+							id="formGroupExampleInput"
+							placeholder="Example input placeholder"
+							name="optionOne"
+							// value={optionOne}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<div className="mb-3">
+						<label
+							htmlFor="formGroupExampleInput2"
+							className="form-label"
+						>
+							Another label
+						</label>
+						<input
+							type="text"
+							className="form-control w-50"
+							id="formGroupExampleInput2"
+							placeholder="Another input placeholder"
+							name="optionTwo"
+							// value={optionTwo}
+							onChange={this.handleChange}
+						/>
+					</div>
+					<button type="submit" className="btn btn-primary">
 						Submit
 					</button>
 				</form>
