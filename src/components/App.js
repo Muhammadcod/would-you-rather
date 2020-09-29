@@ -21,7 +21,7 @@ class App extends Component {
 				<Router>
 					<>
 						<LoadingBar />
-						<div className="container-fluid border">
+						<div className="container-fluid ">
 							<Nav />
 							{this.props.loading === true ? null : (
 								<div>

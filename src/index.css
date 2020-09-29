@@ -10,13 +10,6 @@ a {
 	color: #252525;
 }
 
-.container {
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 10px;
-	border: 1px solid blue;
-}
-
 .custom-btn {
 	text-transform: uppercase;
 	margin: 35px auto;
@@ -99,7 +92,7 @@ li {
 .avatar {
 	height: 70px;
 	border-radius: 25px;
-	margin: 10px 20px;
+	margin: 10px 20px 10px 20px;
 }
 
 .tabs {
@@ -149,6 +142,9 @@ li {
 	width: 100%;
 	padding: 10px;
 }
+.bod {
+	border-left: 1px solid #ccc !important;
+}
 .poll-info .questioner {
 	background-color: #ccc !important;
 }
@@ -181,6 +177,9 @@ li {
 	margin-top: 15px;
 }
 
+.poll-info .bod span:first-child {
+	margin-left: 10px;
+}
 .poll-info .bod .options {
 	text-align: center;
 	margin-top: 15px;

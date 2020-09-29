@@ -37,7 +37,7 @@ class PollResult extends Component {
 									aria-valuemin="0"
 									aria-valuemax="100"
 								>
-									{mutualPerc}%
+									{mutualPerc.toFixed(2)}%
 								</div>
 							</div>
 
@@ -56,7 +56,7 @@ class PollResult extends Component {
 									aria-valuemin="0"
 									aria-valuemax="100"
 								>
-									{unmutualPerc}%
+									{unmutualPerc.toFixed(2)}%
 								</div>
 							</div>
 							<p className="text-center">
