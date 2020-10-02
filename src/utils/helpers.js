@@ -10,12 +10,22 @@ export function percentage(num, total, per) {
 
 // console.log(percentage(2 / 3, 100));
 
-export function formatQuestion(question, author, authedUser, parentQuestion) {
-	const { id, timestamp, optionOne, optionTwo } = question;
-	const { name, avatarURL } = author;
+export function formatUser(user) {
+	const { name, avatarURL } = user;
 
 	return {
 		name,
+		avatar: avatarURL,
+	};
+}
+export function formatQuestion(question, author, authedUser, parentQuestion) {
+	const { id, timestamp, optionOne, optionTwo } = question;
+	const { name, avatarURL, answers, questions } = author;
+
+	return {
+		name,
+		answers,
+		questions,
 		id,
 		timestamp,
 		avatar: avatarURL,

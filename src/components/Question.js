@@ -6,6 +6,10 @@ import { Link, withRouter } from "react-router-dom";
 class Question extends Component {
 	render() {
 		const { question } = this.props;
+
+		if (question === null) {
+			return <p>This Question doesn't exist</p>;
+		}
 		// console.log("....", question);
 
 		// console.log("....", id, authedUser, question);
@@ -32,7 +36,7 @@ class Question extends Component {
 								<Link to={`${id}/result`}>
 									<button
 										type="submit"
-										className="custom-btn bod"
+										className="custom-btn "
 										style={{ color: `red` }}
 									>
 										View Poll
@@ -58,7 +62,7 @@ class Question extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, { id }) {
 	const question = questions[id];
-	// console.log("....", question);
+	console.log("....", question);
 	// console.log("....", authedUser);
 
 	return {

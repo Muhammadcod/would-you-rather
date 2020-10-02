@@ -32,7 +32,7 @@ class NewQuestion extends Component {
 		}));
 	};
 	render() {
-		const { toHome } = this.state;
+		const { toHome, optionOne, optionTwo } = this.state;
 
 		if (toHome === true) {
 			return <Redirect to="/" />;
@@ -40,47 +40,54 @@ class NewQuestion extends Component {
 		console.log("+++", this.state);
 
 		return (
-			<div className="polls">
-				<h3 className="center">Compose new Tweet</h3>
-				<form onSubmit={this.handleSubmit}>
-					<div className="mb-3">
-						<label
-							htmlFor="formGroupExampleInput"
-							className="form-label"
+			<div className="new-polls">
+				<h3 className="center questioner">Create New Question</h3>
+				<div className="new-polls-input">
+					<p className="text">Complete the question:</p>
+					<span className="text-two">Would you rather...</span>
+					<form onSubmit={this.handleSubmit}>
+						<div className="mb-3">
+							<label
+								htmlFor="formGroupExampleInput"
+								className="form-label"
+							></label>
+							<input
+								type="text"
+								className="form-control"
+								id="formGroupExampleInput"
+								placeholder="Enter Option One Text Here"
+								name="optionOne"
+								// value={optionOne}
+								onChange={this.handleChange}
+							/>
+						</div>
+						<p className="text-two text-center border mt-4 mb-0">
+							OR
+						</p>
+						<div className="mb-3">
+							<label
+								htmlFor="formGroupExampleInput2"
+								className="form-label"
+							></label>
+							<input
+								type="text"
+								className="form-control"
+								id="formGroupExampleInput2"
+								placeholder="Enter Option Two Text Here"
+								name="optionTwo"
+								// value={optionTwo}
+								onChange={this.handleChange}
+							/>
+						</div>
+						<button
+							type="submit"
+							disabled={optionOne === "" || optionTwo === ""}
+							className="custom-btn custom-btn-two btn-success"
 						>
-							Example label
-						</label>
-						<input
-							type="text"
-							className="form-control w-50"
-							id="formGroupExampleInput"
-							placeholder="Example input placeholder"
-							name="optionOne"
-							// value={optionOne}
-							onChange={this.handleChange}
-						/>
-					</div>
-					<div className="mb-3">
-						<label
-							htmlFor="formGroupExampleInput2"
-							className="form-label"
-						>
-							Another label
-						</label>
-						<input
-							type="text"
-							className="form-control w-50"
-							id="formGroupExampleInput2"
-							placeholder="Another input placeholder"
-							name="optionTwo"
-							// value={optionTwo}
-							onChange={this.handleChange}
-						/>
-					</div>
-					<button type="submit" className="btn btn-primary">
-						Submit
-					</button>
-				</form>
+							Submit
+						</button>
+					</form>
+				</div>
 			</div>
 		);
 	}

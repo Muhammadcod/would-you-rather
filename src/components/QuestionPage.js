@@ -40,6 +40,7 @@ class QuestionPage extends Component {
 		// const { id } = this.props;
 		console.log("selected", this.state.selectedOption);
 		const { question } = this.props;
+		const { selectedOption } = this.state;
 
 		const { name, avatar, optionOne, optionTwo } = question;
 
@@ -97,7 +98,8 @@ class QuestionPage extends Component {
 
 									<div className="form-group">
 										<button
-											className="btn btn-primary mt-2"
+											className="custom-btn btn-success"
+											disabled={selectedOption === ""}
 											type="submit"
 										>
 											Submit

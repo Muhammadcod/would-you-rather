@@ -18,8 +18,11 @@ a {
 	cursor: pointer;
 	background: #fff;
 	font-size: 16px;
-	width: 250px;
+	width: 100%;
 	position: relative;
+}
+.custom-btn.custom-btn-two {
+	width: 100%;
 }
 
 .custom-btn:hover {
@@ -80,13 +83,22 @@ a {
 	line-height: 40px;
 } */
 
+nav div div ul li a {
+	text-decoration: none;
+	display: block;
+	padding: 5px;
+	margin-right: 10px;
+}
+nav div div ul li a:nth-of-type(3) {
+	margin-right: 0;
+}
 ul {
 	padding-left: 0 !important;
 }
 
 li {
-	list-style-type: none;
-	text-decoration: none;
+	list-style-type: none !important;
+	text-decoration: none !important;
 }
 
 .avatar {
@@ -115,17 +127,31 @@ li {
 	width: 50%;
 	cursor: pointer;
 }
+
 .tab-list-active {
 	background-color: #ccc;
 	border-width: 1px 1px 0 1px;
 }
 
-.polls {
+.polls,
+.new-polls,
+.board {
 	width: 100%;
 	max-width: 450px;
 	margin: 15px auto;
 	border: 1px solid #dad7d7;
 	border-radius: 3px;
+}
+.board {
+	display: flex;
+	padding: 10px;
+}
+.new-polls-input {
+	/* margin: 0 auto; */
+	padding: 10px;
+}
+.new-polls-input form {
+	margin: 0 auto;
 }
 
 .questioner {
@@ -140,10 +166,10 @@ li {
 
 .poll-info {
 	width: 100%;
-	padding: 10px;
 }
 .bod {
 	border-left: 1px solid #ccc !important;
+	padding: 10px;
 }
 .poll-info .questioner {
 	background-color: #ccc !important;
@@ -159,39 +185,43 @@ li {
 	padding: 15px 25px 15px 15px;
 }
 
-.poll-info .bod form {
+.poll-info .form {
 	text-align: center;
 }
 
-.poll-info .bod form p {
+.poll-info form p {
 	text-align: center;
 	margin: 0 0;
 }
 
-.poll-info .bod form .form-check {
+.poll-info form .form-check {
 	text-align: center;
 	letter-spacing: 0.8px;
 }
 
-.poll-info .bod form .form-check:first-child {
+.poll-info form .form-check:first-child {
 	margin-top: 15px;
 }
 
-.poll-info .bod span:first-child {
+.poll-info span:first-child {
 	margin-left: 10px;
+	font-weight: bold;
+	font-size: 18px;
 }
-.poll-info .bod .options {
+/* .text {
+} */
+.text-two {
+	font-weight: bold;
+	font-size: 18px;
+}
+.poll-info .options {
 	text-align: center;
 	margin-top: 15px;
 	letter-spacing: 0.8px;
 }
 
-.poll-info .bod .or {
+.poll-info .or {
 	text-align: center;
-}
-
-.poll-info .bod button {
-	margin-left: 45px;
 }
 
 .new-tweet {

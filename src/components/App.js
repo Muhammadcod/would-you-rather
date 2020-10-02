@@ -5,7 +5,7 @@ import QuestionPage from "./QuestionPage";
 import Dashboard from "./Dashboard";
 import PollResult from "./PollResult";
 import NewQuestion from "./NewQuestion";
-// // import LeaderBoard from "./LeaderBoard";
+import LeaderBoard from "./LeaderBoard";
 import LoadingBar from "react-redux-loading";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -42,9 +42,13 @@ class App extends Component {
 										path="/new"
 										component={NewQuestion}
 									/>
-									{/* <Route
-										path="/leader"
+									<Route
+										path="/leaderBoard"
 										component={LeaderBoard}
+									/>
+									{/* <Route
+										path="*"
+										component={NewQuestion}
 									/> */}
 								</div>
 							)}
