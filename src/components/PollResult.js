@@ -13,12 +13,17 @@ class PollResult extends Component {
 			per,
 			totalVotes,
 			mutualVote,
+			mutualQuestion,
+			unmutualQuestion,
+			selectedOption,
 		} = question;
-		const unmutualVote = totalVotes - mutualVote;
+		const unmutualVote = totalVotes - mutualVote; // No of users that voted for other option
 		const mutualPerc = percentage(mutualVote, totalVotes, per);
+		// percentage of users that voted for the same option as the authed user
 		const unmutualPerc = percentage(unmutualVote, totalVotes, per);
 
-		console.log("total", typeof totalVotes, typeof mutualVote, typeof per);
+		console.log("total", totalVotes, mutualVote, unmutualVote);
+		console.log("text", question.optionOne.text);
 		return (
 			<div className="polls">
 				<h5 className="questioner"> Asked by {name}</h5>
@@ -27,7 +32,7 @@ class PollResult extends Component {
 					<div className="poll-info border">
 						<div className="mb-2 result">Results:</div>
 						<div className="option-one border">
-							<p>Would you rather {optionOne.text}</p>
+							<p>Would you rather {mutualQuestion}</p>
 							<div className="progress">
 								<div
 									className="progress-bar"
@@ -37,7 +42,7 @@ class PollResult extends Component {
 									aria-valuemin="0"
 									aria-valuemax="100"
 								>
-									{mutualPerc.toFixed(2)}%
+									{mutualPerc.toFixed(1)}%
 								</div>
 							</div>
 
@@ -46,7 +51,7 @@ class PollResult extends Component {
 							</p>
 						</div>
 						<div className="option-two border">
-							<p>Would you rather {optionTwo.text}</p>
+							<p>Would you rather {unmutualQuestion}</p>
 							<div className="progress">
 								<div
 									className="progress-bar"
@@ -56,7 +61,7 @@ class PollResult extends Component {
 									aria-valuemin="0"
 									aria-valuemax="100"
 								>
-									{unmutualPerc.toFixed(2)}%
+									{unmutualPerc.toFixed(1)}%
 								</div>
 							</div>
 							<p className="text-center">

@@ -18,7 +18,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Router basename="/homepage">
+				<Router>
 					<>
 						<LoadingBar />
 						<div className="container-fluid ">

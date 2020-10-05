@@ -38,6 +38,18 @@ export function formatQuestion(question, author, authedUser, parentQuestion) {
 		mutualVote: optionOne.votes.includes(authedUser)
 			? optionOne.votes.length
 			: optionTwo.votes.length,
+
+		mutualQuestion: optionOne.votes.includes(authedUser)
+			? optionOne.text
+			: optionTwo.text,
+		unmutualQuestion: optionOne.votes.includes(!authedUser)
+			? optionTwo.text
+			: optionOne.text,
+
+		// selectedOption: optionOne.votes.includes(authedUser)
+		// 	? optionOne.votes.text
+		// 	: optionOne.votes.text,
+
 		per: 100,
 		parent: !parentQuestion
 			? null
