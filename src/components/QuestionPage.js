@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import { handleAddAnswerToQuestion } from "../actions/questions";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 class QuestionPage extends Component {
 	//Radio Buttons in React.js
 	//http://react.tips/radio-buttons-in-reactjs/
@@ -35,14 +35,17 @@ class QuestionPage extends Component {
 		this.props.history.push(`/${id}/result`);
 	};
 
-	i;
 	render() {
 		// const { id } = this.props;
 		console.log("selected", this.state.selectedOption);
 		const { question } = this.props;
 		const { selectedOption } = this.state;
 
-		const { name, avatar, optionOne, optionTwo } = question;
+		const { name, avatar, optionOne, optionTwo, hasAnswered } = question;
+
+		if (hasAnswered) {
+			return <Redirect to="/" />;
+		}
 
 		return (
 			<>

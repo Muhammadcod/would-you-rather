@@ -45,11 +45,6 @@ export function formatQuestion(question, author, authedUser, parentQuestion) {
 		unmutualQuestion: optionOne.votes.includes(!authedUser)
 			? optionTwo.text
 			: optionOne.text,
-
-		// selectedOption: optionOne.votes.includes(authedUser)
-		// 	? optionOne.votes.text
-		// 	: optionOne.votes.text,
-
 		per: 100,
 		parent: !parentQuestion
 			? null
