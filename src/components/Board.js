@@ -4,14 +4,14 @@ import { formatUser } from "../utils/helpers";
 
 class Board extends Component {
 	render() {
-		const { answered, created, user } = this.props;
+		// const { answered, created, user } = this.props;
 		// console.log("pppp", user.answers.id.length);
-		const { name, avatar } = user;
+		// const { name, avatar } = user;
 
 		return (
 			<>
 				<div className="board">
-					<img
+					{/* <img
 						src={avatar}
 						alt={`Avatar of ${name}`}
 						className="avatar"
@@ -21,7 +21,7 @@ class Board extends Component {
 						<p className="options"></p>
 						<p className="or">or</p>
 					</div>
-					<div className="border">{answered + created}</div>
+					<div className="border">{answered + created}</div> */}
 				</div>
 			</>
 		);

@@ -8,19 +8,19 @@ class PollResult extends Component {
 		const {
 			name,
 			avatar,
-			optionOne,
-			optionTwo,
 			per,
 			totalVotes,
 			mutualVote,
 			mutualQuestion,
 			unmutualQuestion,
-			selectedOption,
 		} = question;
 		const unmutualVote = totalVotes - mutualVote; // No of users that voted for other option
+
 		const mutualPerc = percentage(mutualVote, totalVotes, per);
 		// percentage of users that voted for the same option as the authed user
+
 		const unmutualPerc = percentage(unmutualVote, totalVotes, per);
+		// percentage of users that voted for the other option as the authed user
 
 		console.log("total", totalVotes, mutualVote, unmutualVote);
 		console.log("text", question.optionOne.text);
@@ -37,7 +37,9 @@ class PollResult extends Component {
 								<div
 									className="progress-bar"
 									role="progressbar"
-									style={{ width: `${mutualPerc}%` }}
+									style={{
+										width: `${mutualPerc}%`,
+									}}
 									aria-valuenow={mutualPerc}
 									aria-valuemin="0"
 									aria-valuemax="100"
@@ -56,7 +58,9 @@ class PollResult extends Component {
 								<div
 									className="progress-bar"
 									role="progressbar"
-									style={{ width: `${unmutualPerc}%` }}
+									style={{
+										width: `${unmutualPerc}%`,
+									}}
 									aria-valuenow={unmutualPerc}
 									aria-valuemin="0"
 									aria-valuemax="100"

@@ -4,14 +4,26 @@ import Board from "./Board";
 
 class LeaderBoard extends Component {
 	render() {
-		const { userIds } = this.props;
-		console.log("....", userIds);
+		const { boardDetails } = this.props;
+
+		console.log("====", boardDetails);
+
 		return (
 			<>
-				{userIds.map((id) => (
-					<li key={id}>
-						<Board id={id} />
-					</li>
+				{boardDetails.map((user, index) => (
+					<div key={user.id} className="board">
+						<img
+							src={user.avatar}
+							alt={`Avatar of ${user.name}`}
+							className="avatar"
+						/>
+						<div className="border">
+							<span>{user.name}</span>
+							<p className="options">{user.userQuestions}</p>
+							<p className="or">{user.userAnswers}</p>
+						</div>
+						<div className="border">{user.score}</div>
+					</div>
 				))}
 			</>
 		);
@@ -27,14 +39,25 @@ class LeaderBoard extends Component {
 // }
 
 function mapStateToProps({ authedUser, users, questions }) {
-	// const userIds = Object.keys(users);
-	// console.log("sss", users.answers);
-	console.log("this ...", Object.keys(users));
+	const userIds = Object.keys(users);
+
+	const boardDetails = Object.values(users)
+		.map((user) => ({
+			score:
+				Object.values(users[user.id].answers).length +
+				users[user.id].questions.length,
+			userQuestions: users[user.id].questions.length,
+			userAnswers: Object.values(users[user.id].answers).length,
+			id: user.id,
+			name: user.name,
+			avatar: user.avatarURL,
+		}))
+		.sort((a, b) => b.score - a.score);
+
+	console.log("+++", boardDetails);
 
 	return {
-		userIds: Object.keys(users).sort(
-			(a, b) => users[b].answers - users[a].answers
-		),
+		boardDetails,
 	};
 }
 export default connect(mapStateToProps)(LeaderBoard);

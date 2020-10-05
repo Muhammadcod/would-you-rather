@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Nav() {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+		<nav className="navbar navbar-expand-lg navbar-light ">
 			<div className="container-fluid g-5">
 				<button
 					className="navbar-toggler"
