@@ -6,16 +6,31 @@ import Dashboard from "./Dashboard";
 import PollResult from "./PollResult";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
+import Login from "./Login";
 import LoadingBar from "react-redux-loading";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Nav from "./Nav";
+
+const PrivateRoute = ({ component: Component, authedUser, ...rest }) => (
+	<Route
+		{...rest}
+		render={(props) =>
+			authedUser === null ? (
+				<Component {...props} />
+			) : (
+				<Redirect to="/login" />
+			)
+		}
+	/>
+);
 
 class App extends Component {
 	componentDidMount() {
 		this.props.dispatch(handleInitialData());
 	}
 	render() {
+		console.log("aaa", this.props.authedUser);
 		return (
 			<div>
 				<Router>
@@ -25,31 +40,29 @@ class App extends Component {
 							<Nav />
 							{this.props.loading === true ? null : (
 								<div>
-									<Route
+									<Route path="/login" component={Login} />
+
+									<PrivateRoute
 										path="/"
-										exact
+										// exact
 										component={Dashboard}
 									/>
-									<Route
+									<PrivateRoute
 										path="/question/:id"
 										component={QuestionPage}
 									/>
-									<Route
+									<PrivateRoute
 										path="/:id/result"
 										component={PollResult}
 									/>
-									<Route
+									<PrivateRoute
 										path="/new"
 										component={NewQuestion}
 									/>
-									<Route
+									<PrivateRoute
 										path="/leaderBoard"
 										component={LeaderBoard}
 									/>
-									{/* <Route
-										path="*"
-										component={NewQuestion}
-									/> */}
 								</div>
 							)}
 						</div>
@@ -63,6 +76,7 @@ class App extends Component {
 function mapStateToProps({ authedUser }) {
 	return {
 		loading: authedUser === null,
+		authedUser,
 	};
 }
 

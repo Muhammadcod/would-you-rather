@@ -145,6 +145,64 @@ li {
 .board {
 	display: flex;
 	padding: 10px;
+	justify-content: space-between;
+}
+.board .user--detail {
+	flex-grow: 1;
+	border-left: 1px solid #dee2e6;
+}
+.board .user--detail .user--name {
+	padding: 0 10px;
+}
+
+.board .user--detail > div {
+	padding: 0 10px;
+}
+
+.board .user--detail .user--stat {
+	display: flex;
+	justify-content: space-between;
+}
+
+.board .user--detail .user--stat > p {
+	margin-bottom: 0;
+	padding: 5px 0;
+}
+.board .user--score {
+	flex-grow: 1;
+	border-left: 1px solid #dee2e6;
+	padding-left: 10px;
+}
+
+.board .user--score .user--score--details {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	border: 1px solid #dee2e6;
+}
+
+.board .user--score .user--score--details span {
+	text-align: center;
+}
+
+.board .user--score .user--score--details > span:first-of-type {
+	background: #dee2e6;
+	padding: 5px 0;
+}
+
+.board .user--score .user--score--details > span:last-of-type {
+	padding: 28px 0;
+}
+
+.board .user--score .user--score--details > span:last-of-type span {
+	background-color: green;
+	color: white;
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	border-radius: 50px;
+	padding-top: 4px;
+	/* line-height: -20px; */
 }
 .new-polls-input {
 	/* margin: 0 auto; */

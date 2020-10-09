@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Board from "./Board";
 
 class LeaderBoard extends Component {
 	render() {
@@ -17,12 +16,33 @@ class LeaderBoard extends Component {
 							alt={`Avatar of ${user.name}`}
 							className="avatar"
 						/>
-						<div className="border">
-							<span>{user.name}</span>
-							<p className="options">{user.userQuestions}</p>
-							<p className="or">{user.userAnswers}</p>
+						<div className="user--detail">
+							<h3 className="user--name">{user.name}</h3>
+							<div className="user--stat">
+								<p className="user--stat--label">
+									Answered Question
+								</p>
+								<p className="no--of--question-created">
+									{user.userAnswers}
+								</p>
+							</div>
+							<div className="user--stat">
+								<p className="user--stat--label">
+									Created Questions
+								</p>
+								<p className="no--of--question--answered">
+									{user.userQuestions}
+								</p>
+							</div>
 						</div>
-						<div className="border">{user.score}</div>
+						<div className=" user--score">
+							<div className="user--score--details">
+								<span className="border">Score</span>
+								<span className="border">
+									<span>{user.score}</span>
+								</span>
+							</div>
+						</div>
 					</div>
 				))}
 			</>
@@ -30,17 +50,7 @@ class LeaderBoard extends Component {
 	}
 }
 
-// function mapStateToProps({ tweets }) {
-// 	return {
-// 		tweetIds: Object.keys(tweets).sort(
-// 			(a, b) => tweets[b].timestamp - tweets[a].timestamp
-// 		),
-// 	};
-// }
-
-function mapStateToProps({ authedUser, users, questions }) {
-	const userIds = Object.keys(users);
-
+function mapStateToProps({ users }) {
 	const boardDetails = Object.values(users)
 		.map((user) => ({
 			score:
