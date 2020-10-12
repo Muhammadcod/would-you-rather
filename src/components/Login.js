@@ -1,80 +1,97 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { setAuthedUser } from "../actions/authedUser";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {setAuthedUser} from "../actions/authedUser";
+import {Redirect, withRouter} from "react-router-dom";
+
 
 class Login extends Component {
-	state = {
-		selectedOption: "",
-	};
-	handleChange = (event) => {
-		console.log("...", event.target.value);
-		this.setState({ selectedOption: event.target.value });
-	};
+    state = {
+        selectedOption: "select",
+        redirectToRefer: false
+    };
+    handleChange = (event) => {
+        console.log("...", event.target.value);
+        this.setState({selectedOption: event.target.value});
+    };
 
-	handleSubmit = (event) => {
-		// alert("Your favorite flavor is: " + this.state.value);
-		event.preventDefault();
+    handleSubmit = (event) => {
+        // alert("Your favorite flavor is: " + this.state.value);
+        event.preventDefault();
 
-		// console.log("You have submitted:", this.state.selectedOption);
-		const { dispatch } = this.props;
+        // console.log("You have submitted:", this.state.selectedOption);
+        const {dispatch} = this.props;
+        const {selectedOption} = this.state;
+        console.log('idd', selectedOption)
 
-		const { selectedOption } = this.state;
 
-		if (selectedOption !== "") {
-			dispatch(setAuthedUser(selectedOption));
-		}
+        if (selectedOption !== "" && 'select') {
+            dispatch(setAuthedUser(selectedOption));
+            this.setState(() => ({
+                selectedOption: 'select',
+                redirectToRefer: true,
+            }));
+        }
 
-		// this.setState(() => ({
-		// 	selectedOption: "",
-		// }));
 
-		// this.props.history.push(`/${id}/result`);
-	};
+    };
 
-	render() {
-		const { user } = this.props;
-		const { selectedOption } = this.state;
-		console.log("state ==", selectedOption);
+    render() {
+        const {authUser} = this.props;
+        const {selectedOption, redirectToRefer} = this.state;
+        console.log('ddd', redirectToRefer)
+        const {from} = this.props.location.state || {from: {pathname: '/'}}
+        if (redirectToRefer === true) {
+            return <Redirect to={from}/>;
+        }
+        console.log("++++", this.props.user);
 
-		return (
-			<>
-				<div className="new-polls">
-					Login
-					<form onSubmit={this.handleSubmit}>
-						<select
-							className="form-select form-select-lg mb-3"
-							aria-label=".form-select-lg example"
-							value={selectedOption}
-							onChange={this.handleChange}
-						>
-							{user.map((user, index) => (
-								<option key={user.key} value={user.value}>
-									{user.label}
-								</option>
-							))}
-						</select>
-						<button className="btn" type="submit">
-							Sign In
-						</button>
-					</form>
-				</div>
-			</>
-		);
-	}
+        return (
+            <>
+                <div className="new-polls">
+                    <div className="center questioner">
+                        <h4 className='mb-0'>Welcome to the Would You Rather App</h4>
+                        <p className='mb-0'>Please sign in to continue</p>
+                    </div>
+                    <div className='text-center'>
+                        <img src='/react-redux.png' alt='react' className="redux--ava"/>
+                    </div>
+                    <p className='text-center'> Sign In</p>
+                    <div className="new-polls-input">
+                        <form onSubmit={this.handleSubmit}>
+                            <select
+                                className="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example"
+                                value={selectedOption}
+                                onChange={this.handleChange}
+                            >
+                                <option value='select' key={'select'}>Open this select menu</option>
+
+                                {authUser.map((user) => (
+                                    <option key={user.id} className='pl-5' value={user.id}>
+                                        <img src={user.avatarURL}
+                                             alt={`Avatar of ${user.name}`}/>
+                                        {user.name}
+                                    </option>
+                                ))}
+                            </select>
+                            <button className="custom-btn custom-btn-two btn-success custom-btn-three" type="submit">
+                                Sign In
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </>
+        );
+    }
 }
 
-function mapStateToProps({ users }) {
-	// console.log("++++", Object.values(users));
-	const user = Object.values(users).map((user) => ({
-		key: user.id,
-		value: user.id,
-		label: user.name,
-		avatar: user.avatarURL,
-	}));
+function mapStateToProps({users}) {
+    const authUser = Object.values(users)
 
-	return {
-		user,
-	};
+    return {
+        authUser,
+    };
 }
 
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));

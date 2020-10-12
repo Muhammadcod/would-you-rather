@@ -24,6 +24,10 @@ a {
 .custom-btn.custom-btn-two {
 	width: 100%;
 }
+.custom-btn.custom-btn-two.custom-btn-three {
+	margin: 0 auto;
+
+}
 
 .custom-btn:hover {
 	border-color: rgba(0, 0, 0, 0.5);
@@ -107,6 +111,12 @@ li {
 	margin: 10px 20px 10px 20px;
 }
 
+.redux--ava {
+	height: 150px;
+	margin: 20px 20px 20px 20px;
+
+}
+
 .tabs {
 	border: 1px solid #dad7d7;
 	max-width: 500px;
@@ -149,6 +159,7 @@ li {
 }
 .board .user--detail {
 	flex-grow: 1;
+	width: 210px;
 	border-left: 1px solid #dee2e6;
 }
 .board .user--detail .user--name {
