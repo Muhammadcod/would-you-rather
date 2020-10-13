@@ -45,7 +45,7 @@ class Login extends Component {
             <>
                 <div className="new-polls">
                     <div className="center questioner">
-                        <h4 className='mb-0'>Welcome to the Would You Rather App</h4>
+                        <h4 className='mb-0'>Welcome to The Would You Rather App</h4>
                         <p className='mb-0'>Please sign in to continue</p>
                     </div>
                     <div className='text-center'>
