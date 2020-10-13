@@ -7,9 +7,7 @@ import Question from "./Question";
 class Dashboard extends Component {
 
     render() {
-        console.log(this.props);
         const {unanswered, answered} = this.props;
-        console.log("ghtn", unanswered, answered);
 
         return (
             <>
@@ -40,7 +38,6 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps({authedUser, users, questions}) {
-    console.log("this ...", users[authedUser]);
     const answeredIds = Object.keys(users[authedUser].answers);
     const answered = Object.values(questions)
         .filter((question) => answeredIds.includes(question.id))

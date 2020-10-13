@@ -5,28 +5,15 @@ import {connect} from "react-redux";
 
 
 class Logout extends Component {
-    state = {
-        value: false,
-    }
-    handleLogout = (event) => {
 
+    handleLogout = (event) => {
         event.preventDefault()
         const {dispatch} = this.props
         dispatch(setAuthedUser(null));
-        this.setState(() => ({
-
-            isAuthenticated: true,
-        }))
         this.props.history.push(`/login`)
     };
 
-
     render() {
-        /*  const {isAuthenticated} = this.state;
-
-          if (isAuthenticated === true) {
-              return <p>bv</p>;
-          }*/
         const {authedUser, user} = this.props
 
         return authedUser === null ? (
@@ -57,7 +44,6 @@ function mapStateToProps({authedUser, users}) {
             name: user.name,
             avatar: user.avatarURL
         }))
-
 
     console.log('!!!', user)
     return {

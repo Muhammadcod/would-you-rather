@@ -15,10 +15,7 @@ class Login extends Component {
     };
 
     handleSubmit = (event) => {
-        // alert("Your favorite flavor is: " + this.state.value);
         event.preventDefault();
-
-        // console.log("You have submitted:", this.state.selectedOption);
         const {dispatch} = this.props;
         const {selectedOption} = this.state;
         console.log('idd', selectedOption)
@@ -38,12 +35,11 @@ class Login extends Component {
     render() {
         const {authUser} = this.props;
         const {selectedOption, redirectToRefer} = this.state;
-        console.log('ddd', redirectToRefer)
         const {from} = this.props.location.state || {from: {pathname: '/'}}
+
         if (redirectToRefer === true) {
             return <Redirect to={from}/>;
         }
-        console.log("++++", this.props.user);
 
         return (
             <>
@@ -68,8 +64,8 @@ class Login extends Component {
 
                                 {authUser.map((user) => (
                                     <option key={user.id} className='pl-5' value={user.id}>
-                                        <img src={user.avatarURL}
-                                             alt={`Avatar of ${user.name}`}/>
+                                        {/*<img src={user.avatarURL}
+                                             alt={`Avatar of ${user.name}`}/>*/}
                                         {user.name}
                                     </option>
                                 ))}

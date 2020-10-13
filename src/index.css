@@ -213,10 +213,8 @@ li {
 	height: 35px;
 	border-radius: 50px;
 	padding-top: 4px;
-	/* line-height: -20px; */
 }
 .new-polls-input {
-	/* margin: 0 auto; */
 	padding: 10px;
 }
 .new-polls-input form {
@@ -277,8 +275,7 @@ li {
 	font-weight: bold;
 	font-size: 18px;
 }
-/* .text {
-} */
+
 .text-two {
 	font-weight: bold;
 	font-size: 18px;

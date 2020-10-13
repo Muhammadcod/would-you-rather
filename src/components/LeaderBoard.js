@@ -5,8 +5,6 @@ class LeaderBoard extends Component {
 	render() {
 		const { boardDetails } = this.props;
 
-		console.log("====", boardDetails);
-
 		return (
 			<>
 				{boardDetails.map((user, index) => (
