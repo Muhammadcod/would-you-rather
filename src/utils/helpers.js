@@ -13,34 +13,22 @@ export function formatQuestion(question, author, authedUser, parentQuestion) {
 	const { name, avatarURL, answers, questions } = author;
 
 	return {
+		id,
 		name,
 		answers,
+		per: 100,
 		questions,
-		id,
 		timestamp,
 		avatar: avatarURL,
 		optionOne,
 		optionTwo,
+		UsersWhoVotedOne: optionOne.votes.length,
+		UsersWhoVotedTwo: optionTwo.votes.length,
+		hasAnsweredOne: optionOne.votes.includes(authedUser),
+		hasAnsweredTwo: optionTwo.votes.includes(authedUser),
 		hasAnswered:
 			optionOne.votes.includes(authedUser) ||
 			optionTwo.votes.includes(authedUser),
 		totalVotes: optionOne.votes.length + optionTwo.votes.length,
-		mutualVote: optionOne.votes.includes(authedUser)
-			? optionOne.votes.length
-			: optionTwo.votes.length,
-
-		mutualQuestion: optionOne.votes.includes(authedUser)
-			? optionOne.text
-			: optionTwo.text,
-		unmutualQuestion: optionOne.votes.includes(!authedUser)
-			? optionTwo.text
-			: optionOne.text,
-		per: 100,
-		parent: !parentQuestion
-			? null
-			: {
-					author: parentQuestion.question,
-					id: parentQuestion.id,
-			  },
 	};
 }

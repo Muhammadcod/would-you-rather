@@ -5,7 +5,7 @@ import Logout from "./Logout";
 
  function Nav() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light ">
+        <nav className="navbar navbar-expand-lg navbar-light border-bottom ">
             <div className="container-fluid g-5">
                 <button
                     className="navbar-toggler"
@@ -29,7 +29,7 @@ import Logout from "./Logout";
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/new" activeClassName="active">
+                            <NavLink to="/add" activeClassName="active">
                                 New Questions
                             </NavLink>
                         </li>

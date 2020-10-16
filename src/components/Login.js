@@ -51,11 +51,11 @@ class Login extends Component {
                     <div className='text-center'>
                         <img src='/react-redux.png' alt='react' className="redux--ava"/>
                     </div>
-                    <p className='text-center'> Sign In</p>
+                    <h4 className='text-center text-success '> Sign In</h4>
                     <div className="new-polls-input">
                         <form onSubmit={this.handleSubmit}>
                             <select
-                                className="form-select form-select-lg mb-3"
+                                className="form-select form-select-lg mb-3 select "
                                 aria-label=".form-select-lg example"
                                 value={selectedOption}
                                 onChange={this.handleChange}
@@ -63,14 +63,16 @@ class Login extends Component {
                                 <option value='select' key={'select'}>Open this select menu</option>
 
                                 {authUser.map((user) => (
-                                    <option key={user.id} className='pl-5' value={user.id}>
-                                        {/*<img src={user.avatarURL}
+                                    <option key={user.id} className='' value={user.id}>
+                                       {/* <img src={user.avatarURL}
                                              alt={`Avatar of ${user.name}`}/>*/}
                                         {user.name}
                                     </option>
                                 ))}
                             </select>
-                            <button className="custom-btn custom-btn-two btn-success custom-btn-three" type="submit">
+                            <button className="custom-btn custom-btn-two btn-su/ccess custom-btn-three"
+                                    disabled={selectedOption === "select"}
+                                    type="submit">
                                 Sign In
                             </button>
                         </form>

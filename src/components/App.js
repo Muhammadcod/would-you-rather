@@ -20,13 +20,12 @@ class App extends Component {
     }
 
     render() {
-        const {authedUser} = this.props
         return (
             <div>
                 <Router>
                     <>
                         <LoadingBar/>
-                        <div className="container-fluid ">
+                        <div className=" ">
                             <Nav/>
                             <div>
                                 <Switch>
@@ -36,33 +35,28 @@ class App extends Component {
                                         path="/"
                                         exact
                                         component={Dashboard}
-                                        authedUser={authedUser}
                                     />
                                     <PrivateRoute
                                         path="/question/:id"
                                         exact
                                         component={QuestionPage}
-                                        authedUser={authedUser}
                                     />
                                     <PrivateRoute
                                         path="/:id/result"
                                         exact
                                         component={PollResult}
-                                        authedUser={authedUser}
                                     />
                                     <PrivateRoute
-                                        path="/new"
+                                        path="/add"
                                         exact
                                         component={NewQuestion}
-                                        authedUser={authedUser}
                                     />
                                     <PrivateRoute
                                         path="/leaderBoard"
                                         exact
                                         component={LeaderBoard}
-                                        authedUser={authedUser}
                                     />
-                                    <PrivateRoute path='/404' component={NoMatch}/>
+                                    <PrivateRoute path='*' component={NoMatch}/>
                                 </Switch>
                             </div>
                         </div>

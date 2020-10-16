@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import { handleAddAnswerToQuestion } from "../actions/questions";
 import { withRouter, Redirect } from "react-router-dom";
+
+
 class QuestionPage extends Component {
 	//Radio Buttons in React.js
 	//http://react.tips/radio-buttons-in-reactjs/
@@ -20,7 +22,6 @@ class QuestionPage extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log("You have submitted:", this.state.selectedOption.text);
 
 		const { selectedOption } = this.state;
 		const { dispatch, id, authedUser } = this.props;
@@ -36,8 +37,6 @@ class QuestionPage extends Component {
 	};
 
 	render() {
-		// const { id } = this.props;
-		console.log("selected", this.state.selectedOption);
 		const { question } = this.props;
 		const { selectedOption } = this.state;
 
@@ -58,7 +57,7 @@ class QuestionPage extends Component {
 							className="avatar"
 						/>
 						<div className="poll-info">
-							<div className="bod">
+							<div className="">
 								<span>Would you rather</span>
 								<form onSubmit={this.handleSubmit}>
 									<div className="form-check">
@@ -101,7 +100,7 @@ class QuestionPage extends Component {
 
 									<div className="form-group">
 										<button
-											className="custom-btn btn-success"
+											className="custom-btn btn-success remove-margin"
 											disabled={selectedOption === ""}
 											type="submit"
 										>
@@ -121,7 +120,7 @@ class QuestionPage extends Component {
 function mapStateToProps({ authedUser, questions, users }, props) {
 	const { id } = props.match.params;
 	const question = questions[id];
-	console.log("+++", question);
+
 	return {
 		id,
 		authedUser,

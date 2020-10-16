@@ -61,7 +61,7 @@ class NewQuestion extends Component {
 								onChange={this.handleChange}
 							/>
 						</div>
-						<p className="text-two text-center border mt-4 mb-0">
+						<p className="text-two text-center mt-4 mb-0">
 							OR
 						</p>
 						<div className="mb-3">
@@ -82,7 +82,7 @@ class NewQuestion extends Component {
 						<button
 							type="submit"
 							disabled={optionOne === "" || optionTwo === ""}
-							className="custom-btn custom-btn-two btn-success"
+							className="custom-btn custom-btn-two btn-success remove-margin"
 						>
 							Submit
 						</button>

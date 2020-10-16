@@ -10,12 +10,9 @@ class Question extends Component {
 		if (question === null) {
 			return <p>This Question doesn't exist</p>;
 		}
-		// console.log("....", question);
 
-		// console.log("....", id, authedUser, question);
 
 		const { name, avatar, optionOne, id, hasAnswered } = question;
-		console.log("====", hasAnswered);
 
 		return (
 			<div className="polls">
@@ -27,7 +24,7 @@ class Question extends Component {
 						className="avatar"
 					/>
 					<div className="poll-info">
-						<div className="bod">
+						<div className="">
 							<span>Would you rather</span>
 							<div className="options">{optionOne.text} </div>
 							<div className="or">or</div>
@@ -36,8 +33,8 @@ class Question extends Component {
 								<Link to={`${id}/result`}>
 									<button
 										type="submit"
-										className="custom-btn "
-										style={{ color: `red` }}
+										className="custom-btn  remove-margin"
+										style={{ border: `1px solid green` }}
 									>
 										View Poll
 									</button>
@@ -46,7 +43,7 @@ class Question extends Component {
 								<Link to={`/question/${id}`}>
 									<button
 										type="submit"
-										className="custom-btn"
+										className="custom-btn remove-margin"
 									>
 										View Poll
 									</button>
@@ -62,8 +59,6 @@ class Question extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, { id }) {
 	const question = questions[id];
-	console.log("....", question);
-	// console.log("....", authedUser);
 
 	return {
 		authedUser,

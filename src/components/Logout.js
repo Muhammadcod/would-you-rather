@@ -17,13 +17,13 @@ class Logout extends Component {
         const {authedUser, user} = this.props
 
         return authedUser === null ? (
-            <p className='border'>You are not logged in</p>
+            <span className='message'>You are not logged in</span>
         ) : (
             <div className='d-flex'>
                 <div className='mr-3'>
                     <p className='mb-0'
                        style={{padding: `5px 0`}}>{Object.values(user.filter((u) => u.id === authedUser)[0].name)}</p>
-                    {/*<img src={user[authedUser].avatar} alt='user'/>*/}
+                    {/*<img src={user.avatar} alt='user'/>*/}
                 </div>
 
                 <button className="btn btn-outline-success"
@@ -39,13 +39,7 @@ class Logout extends Component {
 function mapStateToProps({authedUser, users}) {
 
     const user = Object.values(users)
-        .map((user) => ({
-            id: user.id,
-            name: user.name,
-            avatar: user.avatarURL
-        }))
 
-    console.log('!!!', user)
     return {
         authedUser,
         user,

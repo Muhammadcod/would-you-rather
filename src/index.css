@@ -21,6 +21,9 @@ a {
 	width: 100%;
 	position: relative;
 }
+.custom-btn.remove-margin {
+	margin-bottom: 0;
+}
 .custom-btn.custom-btn-two {
 	width: 100%;
 }
@@ -108,7 +111,7 @@ li {
 .avatar {
 	height: 70px;
 	border-radius: 25px;
-	margin: 10px 20px 10px 20px;
+	margin-right: 10px;
 }
 
 .redux--ava {
@@ -147,7 +150,7 @@ li {
 .new-polls,
 .board {
 	width: 100%;
-	max-width: 450px;
+	max-width: 460px;
 	margin: 15px auto;
 	border: 1px solid #dad7d7;
 	border-radius: 3px;
@@ -225,14 +228,18 @@ li {
 	padding: 15px;
 	margin: 0 0;
 	border: 1px solid #969696;
+	background: #dee2e6;
 }
 
 .poll {
 	display: flex;
+	padding: 10px;
 }
 
 .poll-info {
 	width: 100%;
+	border-left: 1px solid #dee2e6;
+	padding: 0 10px;
 }
 .bod {
 	border-left: 1px solid #ccc !important;
@@ -250,6 +257,16 @@ li {
 .poll-info .option-one,
 .poll-info .option-two {
 	padding: 15px 25px 15px 15px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.stamp {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	background: yellow;
+	/*padding: 5px;*/
 }
 
 .poll-info .form {
@@ -309,4 +326,17 @@ li {
 
 .newTweet ul li > * {
 	width: 100%;
+}
+
+.select {
+	padding: 8px 2px !important;
+}
+
+.error {
+	display: flex;
+	justify-content: center;
+	height: 80vh;
+	font-size: 100px;
+	text-align: center;
+	align-items: center;
 }
