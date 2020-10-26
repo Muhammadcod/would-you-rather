@@ -154,6 +154,16 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 	};
 }
 
+/*function formatUser({ firstName, lastName, avatar }) {
+	return {
+		id: firstName +lastName,
+		name: firstName + lastName,
+		avatarURL: avatar,
+		answers: {},
+		questions: [],
+	};
+}*/
+
 export function _saveQuestion(question) {
 	return new Promise((res, rej) => {
 		const authedUser = question.author;

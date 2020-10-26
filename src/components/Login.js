@@ -70,7 +70,7 @@ class Login extends Component {
                                     </option>
                                 ))}
                             </select>
-                            <button className="custom-btn custom-btn-two btn-su/ccess custom-btn-three"
+                            <button className="custom-btn custom-btn-two btn-success custom-btn-three"
                                     disabled={selectedOption === "select"}
                                     type="submit">
                                 Sign In

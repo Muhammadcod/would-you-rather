@@ -18,7 +18,7 @@ class App extends Component {
     componentDidMount() {
         this.props.dispatch(handleInitialData());
     }
-
+//https://ui.dev/react-router-v4-protected-routes-authentication/
     render() {
         return (
             <div>
