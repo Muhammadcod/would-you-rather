@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {handleInitialData} from "../actions/shared";
-import QuestionPage from "./QuestionPage";
+// import QuestionPage from "./QuestionPage";
 import Dashboard from "./Dashboard";
-import PollResult from "./PollResult";
+// import PollResult from "./PollResult";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
 import Login from "./Login";
@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import LoadingBar from "react-redux-loading";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Nav from "./Nav";
+import View from "./View";
 
 
 class App extends Component {
@@ -39,12 +40,7 @@ class App extends Component {
                                     <PrivateRoute
                                         path="/question/:id"
                                         exact
-                                        component={QuestionPage}
-                                    />
-                                    <PrivateRoute
-                                        path="/:id/result"
-                                        exact
-                                        component={PollResult}
+                                        component={View}
                                     />
                                     <PrivateRoute
                                         path="/add"

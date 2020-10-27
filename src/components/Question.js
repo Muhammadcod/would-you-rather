@@ -30,7 +30,7 @@ class Question extends Component {
 							<div className="or">or</div>
 
 							{hasAnswered === true ? (
-								<Link to={`${id}/result`}>
+								<Link to={`/question/${id}`}>
 									<button
 										type="submit"
 										className="custom-btn  remove-margin"

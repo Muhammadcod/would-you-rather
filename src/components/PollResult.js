@@ -135,8 +135,8 @@ class PollResult extends Component {
     }
 }
 
-function mapStateToProps({authedUser, questions, users}, props) {
-    const {id} = props.match.params;
+function mapStateToProps({authedUser, questions, users}, {id}) {
+
     const question = questions[id];
 
     return {

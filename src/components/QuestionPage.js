@@ -33,7 +33,7 @@ class QuestionPage extends Component {
 			selectedOption: "",
 		}));
 
-		this.props.history.push(`/${id}/result`);
+		this.props.history.push(`/question/${id}`);
 	};
 
 	render() {
