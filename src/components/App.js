@@ -52,7 +52,7 @@ class App extends Component {
                                         exact
                                         component={LeaderBoard}
                                     />
-                                    <PrivateRoute path='*' component={NoMatch}/>
+                                    <PrivateRoute path='' component={NoMatch}/>
                                 </Switch>
                             </div>
                         </div>
