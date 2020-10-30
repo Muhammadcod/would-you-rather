@@ -7,6 +7,8 @@ Redux/ React-Redux/ Redux/ Redux Thunk/ React Redux Loading/ React router .
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![alt text](./public/react-1.png)
+
 ## Installation
 
 To clone repository run:
