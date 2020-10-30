@@ -22,7 +22,6 @@ class NewQuestion extends Component {
         const {optionOne, optionTwo} = this.state;
         const {dispatch, id} = this.props;
 
-        console.log("New question: ", typeof optionOne, typeof optionTwo);
         dispatch(handleAddQuestion(optionOne, optionTwo));
 
         this.setState(() => ({
