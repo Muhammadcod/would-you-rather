@@ -3,9 +3,7 @@ import {connect} from "react-redux";
 import QuestionPage from "./QuestionPage";
 import PollResult from "./PollResult";
 import {formatQuestion} from "../utils/helpers";
-import {Redirect} from "react-router-dom";
 import NoMatch from "./NoMatch";
-// import {Link} from "react-router-dom";
 
 class View extends Component {
     render() {
@@ -33,10 +31,8 @@ class View extends Component {
 function mapStateToProps({authedUser, questions, users}, props) {
 
     const {id} = props.match.params;
-    console.log('scat',typeof id)
 
     const question = questions[id];
-    console.log('scale',typeof question)
 
     if(question === undefined || question === null) {
         return {
