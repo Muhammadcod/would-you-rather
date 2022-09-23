@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
+// import "./styles.scss";
 import App from "./components/App";
 import reducer from "./reducers";
 import middleware from "./middleware";
