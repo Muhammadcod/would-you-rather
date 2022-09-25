@@ -42,10 +42,7 @@ class Question extends Component {
                 </Link>
               ) : (
                 <Link to={`/question/${id}`}>
-                  <button
-                    type="button"
-                    className="btn btn-custom btn-outline-info"
-                  >
+                  <button type="button" className="btn btn-custom ">
                     View Poll
                   </button>
                 </Link>

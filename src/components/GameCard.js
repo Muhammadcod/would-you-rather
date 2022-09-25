@@ -1,10 +1,14 @@
 import React from 'react';
 import Question from './Question';
 
-const GameCard = ({ id }) => {
+const GameCard = ({ data = [] }) => {
   return (
-    <div className="col-md-4">
-      <Question id={id} />
+    <div className="row g-3">
+      {data.map((question) => (
+        <div className="col-md-6 col-xl-4" key={question.id}>
+          <Question id={question.id} />
+        </div>
+      ))}
     </div>
   );
 };
