@@ -24,3 +24,9 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# IDE
+.idea
+.idea/jsLinters
+.idea/inspectionProfiles
+.idea/sonarlint
