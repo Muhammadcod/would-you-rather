@@ -1,6 +1,9 @@
 @use "./reset/reset";
+@use "./base/variables";
 @use "./components/tabs";
 @use "./components/layout";
+@use "./components/button";
+@use "./components/question";
 @import '~bootstrap/dist/css/bootstrap.css';
 
 

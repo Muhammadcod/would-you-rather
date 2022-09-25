@@ -1,0 +1,13 @@
+.btn {
+  &-custom {
+    text-transform: uppercase;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background: #179778;
+    color: #fff;
+    width: 100%;
+    outline: 1px;
+    position: relative;
+  }
+}

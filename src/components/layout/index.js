@@ -65,8 +65,8 @@ const Layout = ({ children }) => {
                 'd-flex justify-content-center align-items-center',
                 {
                   'nav-link-text': true,
-                  'nav-link-display': !expansionState[5],
-                  'ml-1': !expansionState[5]
+                  'nav-link-display': !expansionState[5]
+                  // 'ml-1': expansionState[5]
                 }
               )}
             >

@@ -26,6 +26,7 @@ const PageTabs = (props) => {
             <PageTab
               activeTab={activeTab}
               key={tabId}
+              tabId={tabId}
               label={title}
               onClick={onClickTabItem}
             />

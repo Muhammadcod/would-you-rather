@@ -1,16 +1,16 @@
 import React from 'react';
 
 const PageTab = (props) => {
-  const { label, activeTab } = props;
+  const { tabId, label, activeTab } = props;
 
   const onClick = () => {
-    const { label, onClick } = props;
-    onClick(label);
+    const { tabId, onClick } = props;
+    onClick(tabId);
   };
 
   let className = 'tab-list-item';
 
-  if (activeTab === label) {
+  if (activeTab === tabId) {
     className += ' tab-list-active';
   }
 

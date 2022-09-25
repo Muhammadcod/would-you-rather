@@ -1,0 +1,8 @@
+@function theme($color) {
+  @if map-has-key($themeColors, $color) {
+    @return map-get($themeColors, $color);
+  }
+
+  @error 'Unknown `#{$color}` in $themeColors.';
+  @return null;
+}

@@ -1,0 +1,54 @@
+:root {
+  --primary-color: #6a69e4;
+  --primary-color-shade: rgba(106, 105, 228, 0.07);
+  --secondary-color: #fa4659;
+  --secondary-color-shade: rgba(250, 70, 89, 0.15);
+  --report-table-header-color: #6a69e4;
+}
+
+$themeColors: (
+        primary: var(--primary-color),
+        primaryShade: var(--primary-color-shade),
+        secondary: var(--secondary-color),
+        secondaryShade: var(--secondary-color-shade),
+);
+
+$colors: (
+        dark: #4a4a4a,
+        dark-72: #4a4a4ab8,
+        dark-purple: #32327c,
+        grey: #9b9b9b,
+        grey-2: #8c8cb41a,
+        grey-3: #43667626,
+        grey-4: #949494,
+        light-grey: rgba(67, 102, 118, 0.15),
+        very-light-grey: #cccccc,
+        off-purple: rgba(106, 105, 228, 0.22),
+        light-blue: #f7f7fa,
+        lighter-blue: #f8f8ff,
+        white: #fff,
+        off-white: #f6f9fc,
+        white-70: #ffffffb2,
+        black: #000,
+        yellow: #f5a623,
+        yellow-2: #e8a869,
+        green: #50e3c2,
+        dark-green: #58c9b9,
+        watermelon: #fa4659,
+        light-watermelon: #e1b9bd,
+        dark-watermelon: #ed1c24,
+        purple: #6a69e4,
+        light-purple: #6a69e412,
+        light-purple-2: #dfdff4,
+        indigo: #5655d0,
+        cyan: #53c7f0,
+        lavender-blue: #8483fe,
+        active: #32327c,
+        onboarding-tabs: #ccccff,
+        darkBorder: #4a4a4a66,
+        context-menu-item: #4d4d4d,
+        primary: var(--primary-color),
+        red: #fa4659,
+        dark-red: #d0021b,
+        drugBox: #f1f1fc,
+);

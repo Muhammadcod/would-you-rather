@@ -1,55 +1,53 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import Tabs from "./Tabs";
-import Question from "./Question";
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import GameCard from './GameCard';
+import PageTabs from './PageTabs';
 
 class Dashboard extends Component {
+  render() {
+    const { unanswered, answered } = this.props;
 
-    render() {
-        const {unanswered, answered} = this.props;
+    const tabs = [
+      {
+        tabId: 'unanswered',
+        title: 'Unanswered',
+        tabIcon: 'iconmoon',
+        component: () => <GameCard data={unanswered} />
+      },
+      {
+        tabId: 'answered',
+        title: 'Answered',
+        tabIcon: 'iconmoon',
+        component: () => <GameCard data={answered} />
+      }
+    ];
 
-        return (
-            <>
+    return (
+      <div className="container">
+        <div className="my-5">Start the game</div>
 
-                <Tabs>
-                    <div label="Unanswered Questions">
-                        <ul className="dashboard-list">
-                            {unanswered.map((question) => (
-                                <li key={question.id}>
-                                    <Question id={question.id}/>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div label="Answered Questions">
-                        <ul className="dashboard-list">
-                            {answered.map((question) => (
-                                <li key={question.id}>
-                                    <Question id={question.id}/>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </Tabs>
-            </>
-        );
-    }
+        <PageTabs
+          tabs={tabs.filter((item) => item !== null)}
+          defaultTab="unanswered"
+        />
+      </div>
+    );
+  }
 }
 
-function mapStateToProps({authedUser, users, questions}) {
-    const answeredIds = Object.keys(users[authedUser].answers);
-    const answered = Object.values(questions)
-        .filter((question) => answeredIds.includes(question.id))
-        .sort((a, b) => b.timestamp - a.timestamp);
-    const unanswered = Object.values(questions)
-        .filter((question) => !answeredIds.includes(question.id))
-        .sort((a, b) => b.timestamp - a.timestamp);
+function mapStateToProps({ authedUser, users, questions }) {
+  const answeredIds = Object.keys(users[authedUser].answers);
+  const answered = Object.values(questions)
+    .filter((question) => answeredIds.includes(question.id))
+    .sort((a, b) => b.timestamp - a.timestamp);
+  const unanswered = Object.values(questions)
+    .filter((question) => !answeredIds.includes(question.id))
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-    return {
-        answered,
-        unanswered,
-    };
+  return {
+    answered,
+    unanswered
+  };
 }
 
 export default connect(mapStateToProps)(Dashboard);
