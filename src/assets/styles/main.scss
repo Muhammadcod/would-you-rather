@@ -2,6 +2,8 @@
 @use "./base/variables";
 @use "./components/tabs";
 @use "./components/layout";
+@use "./components/board";
+@use "./components/newQuestion";
 @use "./components/button";
 @use "./components/question";
 @import '~bootstrap/dist/css/bootstrap.css';

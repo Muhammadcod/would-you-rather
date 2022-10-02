@@ -1,49 +1,61 @@
-import React, {Component} from 'react';
-import {setAuthedUser} from '../actions/authedUser'
-import {withRouter} from "react-router-dom";
-import {connect} from "react-redux";
-
+import React, { Component } from 'react';
+import { setAuthedUser } from '../actions/authedUser';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
+import Avatar from './Avatar';
 
 class Logout extends Component {
+  handleLogout = (event) => {
+    event.preventDefault();
+    const { dispatch } = this.props;
+    dispatch(setAuthedUser(null));
+    this.props.history.push(`/login`);
+  };
 
-    handleLogout = (event) => {
-        event.preventDefault()
-        const {dispatch} = this.props
-        dispatch(setAuthedUser(null));
-        this.props.history.push(`/login`)
-    };
+  render() {
+    const { authedUser, user, status } = this.props;
 
-    render() {
-        const {authedUser, user} = this.props
-
-        return authedUser === null ? (
-            <span className='message'>You are not logged in</span>
-        ) : (
-            <div className='d-flex'>
-                <div className='mr-3'>
-                    <p className='mb-0'
-                       style={{padding: `5px 0`}}>{Object.values(user.filter((u) => u.id === authedUser)[0].name)}</p>
-                    {/*<img src={user.avatar} alt='user'/>*/}
-                </div>
-
-                <button className="btn btn-outline-success"
-                        onClick={this.handleLogout}
-                >
-                    Sign out
-                </button>
-            </div>
-        )
-    }
+    return authedUser === null ? (
+      <span className="message">You are not logged in</span>
+    ) : (
+      <nav className="sidebar__nav">
+        <div className="d-flex align-items-center mt-auto">
+          <div
+            // onMouseEnter={() => handleExpansion(5)}
+            // onMouseLeave={() => handleExpansion(5)}
+            onClick={this.handleLogout}
+            className="nav-link d-flex justify-content-center align-items-center me-4"
+          >
+            <i className="bx bx-log-out"></i>
+          </div>
+          <span
+            className={classNames(
+              'd-flex justify-content-center align-items-center',
+              {
+                'nav-link-text': true,
+                'nav-link-display': !status
+                // 'ml-1': expansionState[5]
+              }
+            )}
+          >
+            Logout
+          </span>
+        </div>
+        <Avatar avatar={user.avatarURL} alt="user" className="mt-3" size={45} />
+      </nav>
+    );
+  }
 }
 
-function mapStateToProps({authedUser, users}) {
+function mapStateToProps({ authedUser, users }) {
+  const user =
+    Object.values(users).find((user) => user.id === authedUser) || {};
 
-    const user = Object.values(users)
-
-    return {
-        authedUser,
-        user,
-    };
+  return {
+    authedUser,
+    user
+  };
 }
 
 export default withRouter(connect(mapStateToProps)(Logout));

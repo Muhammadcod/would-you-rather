@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import Logout from '../Logout';
 
 const links = [
   { to: '/', text: 'Dashboard', icon: 'bx-home' },
   { to: '/add', text: 'New Questions', icon: 'bxs-plus-square' },
-  { to: '/LeaderBoard', text: 'LeaderBoard', icon: 'bx-user' }
+  { to: '/LeaderBoard', text: 'LeaderBoard', icon: 'bx-trophy' }
 ];
 
-const Layout = ({ children }) => {
+const Layout = ({ ...props }) => {
+  const { children } = props;
+  console.log(props, '..');
   const [expansionState, setExpansionState] = useState(
     new Array(links?.length + 2).fill(false)
   );
@@ -49,36 +53,17 @@ const Layout = ({ children }) => {
             </div>
           ))}
         </nav>
-
-        <nav className="sidebar__nav">
-          <div className="d-flex align-items-center mt-auto">
-            <NavLink
-              to={`/try`}
-              onMouseEnter={() => handleExpansion(5)}
-              onMouseLeave={() => handleExpansion(5)}
-              className="nav-link d-flex justify-content-center align-items-center me-4"
-            >
-              <i className="bx bx-log-out"></i>
-            </NavLink>
-            <span
-              className={classNames(
-                'd-flex justify-content-center align-items-center',
-                {
-                  'nav-link-text': true,
-                  'nav-link-display': !expansionState[5]
-                  // 'ml-1': expansionState[5]
-                }
-              )}
-            >
-              Logout
-            </span>
-          </div>
-          <div className="profile p-3 mt-3">A</div>
-        </nav>
+        <Logout status={expansionState[5]} />
       </aside>
       <main className="border main">{children}</main>
     </div>
   );
 };
 
-export default Layout;
+function mapStateToProps(authedUser) {
+  return {
+    authedUser
+  };
+}
+
+export default connect(mapStateToProps)(Layout);

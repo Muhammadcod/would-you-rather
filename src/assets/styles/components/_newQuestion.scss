@@ -1,0 +1,30 @@
+
+.new-polls {
+  width: 100%;
+  max-width: 470px;
+  margin: 15px auto;
+  border: 1px solid #dad7d7;
+  /*border-radius: 3px;*/
+  border-radius: 1rem;
+
+  .questioner {
+    padding: 15px;
+    margin: 0 0;
+    border: 1px solid #969696;
+    background: #dee2e6;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  &__input {
+    padding: 10px;
+
+    form {
+      margin: 0 auto;
+    }
+
+  }
+
+}
+
+
