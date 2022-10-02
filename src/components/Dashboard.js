@@ -11,20 +11,18 @@ class Dashboard extends Component {
       {
         tabId: 'unanswered',
         title: 'Unanswered',
-        tabIcon: 'iconmoon',
         component: () => <GameCard data={unanswered} />
       },
       {
         tabId: 'answered',
         title: 'Answered',
-        tabIcon: 'iconmoon',
         component: () => <GameCard data={answered} />
       }
     ];
 
     return (
       <div className="container">
-        <div className="my-5">Start the game</div>
+        <h3 className="my-5">Dashboard</h3>
 
         <PageTabs
           tabs={tabs.filter((item) => item !== null)}
